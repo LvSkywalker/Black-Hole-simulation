@@ -19,7 +19,7 @@ public:
     std::vector<float> position;
     std::vector<float> velocity;
     float radius;
-    Object(std::vector<float> position, std::vector<float> velocity, float radius = 15.0f){
+    Object(std::vector<float> position, std::vector<float> velocity, float radius){
         this->position = position;
         this->velocity = velocity;
         this->radius = radius;
@@ -51,15 +51,15 @@ int main() {
     GLFWwindow* window = StartGLFW();
 
     std::vector<Object> objs = {
-        Object(std::vector<float>{200.0f, 500.0f}, std::vector<float>{0.0f, 10.0f}, 20.0f),
-        Object(std::vector<float>{200.0f, 300.0f}, std::vector<float>{0.0f, 10.0f}, 20.0f),
+        Object(std::vector<float>{400.0f, 100.0f}, std::vector<float>{0.1f, 0.1f}, 30.0f),
+        Object(std::vector<float>{300.0f, 200.0f}, std::vector<float>{-0.1f, 0.1f}, 20.0f),
     };
 
     while (!glfwWindowShouldClose(window)) {
         glClear(GL_COLOR_BUFFER_BIT);
 
         for (auto& obj:objs) {
-            obj.accelerate(0.0f, 9.81/20.0f);
+            obj.accelerate(0.01f, 0.1f);
             obj.updatePos();
             obj.DrawCircle(obj.position[0], obj.position[1], obj.radius, 20);
             if (obj.position[1] + obj.radius < 0 || obj.position[1] + obj.radius > screenHeight) {
