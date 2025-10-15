@@ -1,0 +1,36 @@
+# =============================
+# JetBrains CLion
+# =============================
+.idea/
+cmake-build-*/
+build/
+
+# =============================
+# CMake files
+# =============================
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+install_manifest.txt
+Testing/
+CTestTestfile.cmake
+
+# =============================
+# Build artifacts
+# =============================
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+*.exe
+*.out
+
+# =============================
+# OS specific
+# =============================
+.DS_Store
+Thumbs.db
+
